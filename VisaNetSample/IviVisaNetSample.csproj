@@ -66,6 +66,8 @@
 			<Output TaskParameter="PackageVersion" PropertyName="PackageVersion" />
 		</BuildAppVersion>
 	</Target>
+	<ItemGroup>
+	</ItemGroup>
 
 
 	<!-- end of common settings -->
@@ -75,8 +77,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Reference Include="..\lib\Ivi.Visa.dll"/>
-	  <Reference Include="..\lib\Keysight.Visa.dll"/>
+		<Reference Include="..\lib\Ivi.Visa.dll" />
+		<Reference Include="..\lib\Keysight.Visa.dll" />
+		<None Include="..\lib\x64\ktvisa32.dll" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
 
 	<ItemGroup>
