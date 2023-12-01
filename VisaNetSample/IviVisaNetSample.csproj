@@ -1,0 +1,87 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<!-- 어셈블리/패키지 기본 정보 -->
+	<PropertyGroup>
+		<RootNamespace>Jdt.VisaTester</RootNamespace>
+		<AssemblyName>$(RootNamespace)</AssemblyName>
+		<VersionPrefix>0.1</VersionPrefix>
+		<VersionSuffix></VersionSuffix>
+		<SourceRevisionId></SourceRevisionId>
+	</PropertyGroup>
+
+	<!-- 출력 타겟 -->
+	<PropertyGroup>
+		<Configurations>Debug;Release</Configurations>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<Platform>AnyCPU</Platform>
+		<PlatformTarget>$(Platform)</PlatformTarget>
+		<!--<OutDir>D:\DrBAE\Universe\CodeBaseMainApp</OutDir>-->
+	</PropertyGroup>
+
+	<!-- Language, Compiler 설정 -->
+	<PropertyGroup>
+		<LangVersion>12.0</LangVersion>
+		<Nullable>enable</Nullable>
+		<WarningsAsErrors>CS8600;CS8602;CS8603;CS8625;CS8604</WarningsAsErrors>
+
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseWindowsForms>false</UseWindowsForms>
+		<UseWPF>false</UseWPF>
+
+		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+		<Deterministic>true</Deterministic>
+		<AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
+
+		<ApplicationVisualStyles>true</ApplicationVisualStyles>
+		<ApplicationUseCompatibleTextRendering>false</ApplicationUseCompatibleTextRendering>
+		<ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
+		<ApplicationDefaultFont>Segoe UI, 16pt</ApplicationDefaultFont>
+		<!--<ApplicationIcon>Fonts/app.ico</ApplicationIcon>-->
+
+	</PropertyGroup>
+
+	<!-- 패키지 추가 정보 -->
+	<PropertyGroup>
+		<Company>jdtetk.co.kr</Company>
+		<Product>$(AssemblyName)</Product>
+		<!--<ApplicationManifest>app.manifest</ApplicationManifest>-->
+
+		<!-- nuget package & debug symbol 설정 -->
+		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+		<PackageOutputPath>..\publish</PackageOutputPath>
+		<DebugType>embedded</DebugType>
+	</PropertyGroup>
+
+	<!-- 버전설정 자동화 : 어셈블리와 누겟 패키지의 버전을 설정 -->
+	<UsingTask TaskName="BuildAppVersion" AssemblyFile="..\Universe.Version.dll" />
+	<Target Name="JdtVersion" BeforeTargets="BeforeBuild">
+		<!-- IsTimeFormat = true ==> 날짜시간형식 = yyyy.MM.dd.HHmm -->
+		<BuildAppVersion IsTimeFormat="true" BaseVersionPrefix="$(VersionPrefix)" VersionSuffix="$(VersionSuffix)" SourceRevisionId="$(SourceRevisionId)">
+			<Output TaskParameter="Version" PropertyName="Version" />
+			<Output TaskParameter="VersionPrefix" PropertyName="VersionPrefix" />
+			<Output TaskParameter="VersionPrefix" PropertyName="FileVersion" />
+			<Output TaskParameter="VersionPrefix" PropertyName="AssemblyVersion" />
+			<Output TaskParameter="PackageVersion" PropertyName="PackageVersion" />
+		</BuildAppVersion>
+	</Target>
+
+
+	<!-- end of common settings -->
+
+	<ItemGroup>
+		<PackageReference Include="Kelary.Ivi.Visa" Version="5.*" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="C:\Program Files\IVI Foundation\VISA\Microsoft.NET\Framework64\v2.0.50727\VISA.NET Shared Components 7.2.0\Ivi.Visa.dll"/>
+	  <Reference Include="C:\Program Files\Keysight\IO Libraries Suite\Keysight.Visa.dll"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Config\*.ini" CopyToOutputDirectory="PreserveNewest" />
+		<None Update="Config\*.json" CopyToOutputDirectory="PreserveNewest" />
+	</ItemGroup>
+
+</Project>
