@@ -75,8 +75,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Reference Include="C:\Program Files\IVI Foundation\VISA\Microsoft.NET\Framework64\v2.0.50727\VISA.NET Shared Components 7.2.0\Ivi.Visa.dll"/>
-	  <Reference Include="C:\Program Files\Keysight\IO Libraries Suite\Keysight.Visa.dll"/>
+	  <Reference Include="..\lib\Ivi.Visa.dll"/>
+	  <Reference Include="..\lib\Keysight.Visa.dll"/>
 	</ItemGroup>
 
 	<ItemGroup>
