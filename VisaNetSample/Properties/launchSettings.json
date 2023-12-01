@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "IviVisaNetSample": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

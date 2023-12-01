@@ -18,7 +18,9 @@
 [Rr]elease/
 [Rr]eleases/
 x64/
+![Ll]ib/x64/
 x86/
+![Ll]ib/x86/
 bld/
 [Bb]in/
 [Oo]bj/
@@ -46,7 +48,7 @@ dlldata.c
 project.lock.json
 project.fragment.lock.json
 artifacts/
-**/Properties/launchSettings.json
+#**/Properties/launchSettings.json
 
 *_i.c
 *_p.c
@@ -150,7 +152,7 @@ publish/
 *.azurePubxml
 # TODO: Comment the next line if you want to checkin your web deploy settings
 # but database connection strings (with potential passwords) will be unencrypted
-*.pubxml
+#*.pubxml
 *.publishproj
 
 # Microsoft Azure Web App publish settings. Comment the next line if you want to
@@ -160,6 +162,7 @@ PublishScripts/
 
 # NuGet Packages
 *.nupkg
+![Ll]ib/*.nupkg
 # The packages folder can be ignored because of Package Restore
 **/packages/*
 # except build/, which is used as an MSBuild target.
