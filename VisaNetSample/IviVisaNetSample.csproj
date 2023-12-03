@@ -73,13 +73,9 @@
 	<!-- end of common settings -->
 
 	<ItemGroup>
-		<PackageReference Include="Kelary.Ivi.Visa" Version="5.*" />
-	</ItemGroup>
-
-	<ItemGroup>
+		<!-- Kelary.Ivi.Visa ~ VISA.NET 7 에서 동작 안함 -->
 		<Reference Include="..\lib\Ivi.Visa.dll" />
 		<Reference Include="..\lib\Keysight.Visa.dll" />
-		<None Include="..\lib\x64\ktvisa32.dll" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
 
 	<ItemGroup>
